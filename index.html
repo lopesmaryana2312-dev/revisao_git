@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Atalhos do VS Code</title>
+	<style>
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: Arial, sans-serif; color: #e6edf3; background: #0d1117; }
+		header { padding: 56px 24px 32px; text-align: center; background: linear-gradient(135deg, #581c87, #0d1117); }
+		h1 { margin: 0 0 10px; font-size: clamp(2rem, 5vw, 3.5rem); }
+		header p { margin: 0 auto; max-width: 650px; color: #9da7b3; }
+		main { max-width: 1100px; margin: auto; padding: 32px 24px 56px; }
+		#search { width: 100%; margin-bottom: 24px; padding: 14px 16px; color: #fff; background: #161b22; border: 1px solid #30363d; border-radius: 8px; font-size: 1rem; }
+		.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+		section { padding: 20px; background: #161b22; border: 1px solid #30363d; border-radius: 10px; }
+		h2 { margin: 0 0 12px; color: #d8b4fe; font-size: 1.2rem; }
+		.shortcut { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #21262d; }
+		.shortcut:last-child { border-bottom: 0; }
+		.description { color: #c9d1d9; }
+		kbd { padding: 4px 7px; white-space: nowrap; color: #f0f6fc; background: #21262d; border: 1px solid #484f58; border-radius: 5px; font: 0.8rem monospace; }
+		footer { padding: 20px; color: #8b949e; text-align: center; }
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Atalhos do Visual Studio Code</h1>
+		<p>Uma referência rápida com os principais atalhos para Windows e Linux.</p>
+	</header>
+	<main>
+		<input id="search" type="search" placeholder="Pesquisar atalho..." aria-label="Pesquisar atalho">
+		<div class="grid">
+			<section><h2>Geral</h2>
+				<div class="shortcut"><span class="description">Paleta de comandos</span><kbd>Ctrl + Shift + P</kbd></div>
+				<div class="shortcut"><span class="description">Configurações</span><kbd>Ctrl + ,</kbd></div>
+				<div class="shortcut"><span class="description">Terminal integrado</span><kbd>Ctrl + `</kbd></div>
+				<div class="shortcut"><span class="description">Salvar arquivo</span><kbd>Ctrl + S</kbd></div>
+			</section>
+			<section><h2>Edição</h2>
+				<div class="shortcut"><span class="description">Formatar documento</span><kbd>Shift + Alt + F</kbd></div>
+				<div class="shortcut"><span class="description">Excluir linha</span><kbd>Ctrl + Shift + K</kbd></div>
+				<div class="shortcut"><span class="description">Mover linha</span><kbd>Alt + ↑ / ↓</kbd></div>
+				<div class="shortcut"><span class="description">Desfazer / refazer</span><kbd>Ctrl + Z / Y</kbd></div>
+			</section>
+			<section><h2>Navegação</h2>
+				<div class="shortcut"><span class="description">Ir para arquivo</span><kbd>Ctrl + P</kbd></div>
+				<div class="shortcut"><span class="description">Ir para linha</span><kbd>Ctrl + G</kbd></div>
+				<div class="shortcut"><span class="description">Ir para definição</span><kbd>F12</kbd></div>
+				<div class="shortcut"><span class="description">Alternar entre abas</span><kbd>Ctrl + Tab</kbd></div>
+			</section>
+			<section><h2>Seleção</h2>
+				<div class="shortcut"><span class="description">Selecionar próxima ocorrência</span><kbd>Ctrl + D</kbd></div>
+				<div class="shortcut"><span class="description">Selecionar todas as ocorrências</span><kbd>Ctrl + Shift + L</kbd></div>
+				<div class="shortcut"><span class="description">Adicionar cursor acima/abaixo</span><kbd>Ctrl + Alt + ↑ / ↓</kbd></div>
+			</section>
+			<section><h2>Pesquisa</h2>
+				<div class="shortcut"><span class="description">Pesquisar no arquivo</span><kbd>Ctrl + F</kbd></div>
+				<div class="shortcut"><span class="description">Substituir</span><kbd>Ctrl + H</kbd></div>
+				<div class="shortcut"><span class="description">Pesquisar em arquivos</span><kbd>Ctrl + Shift + F</kbd></div>
+			</section>
+			<section><h2>Depuração</h2>
+				<div class="shortcut"><span class="description">Iniciar depuração</span><kbd>F5</kbd></div>
+				<div class="shortcut"><span class="description">Executar sem depurar</span><kbd>Ctrl + F5</kbd></div>
+				<div class="shortcut"><span class="description">Alternar breakpoint</span><kbd>F9</kbd></div>
+			</section>
+		</div>
+	</main>
+	<footer>Use Ctrl + Shift + P para explorar todos os comandos do VS Code.</footer>
+	<script>
+		const search = document.querySelector('#search');
+		const sections = document.querySelectorAll('section');
+		search.addEventListener('input', () => {
+			const term = search.value.toLowerCase();
+			sections.forEach(section => {
+				section.hidden = !section.textContent.toLowerCase().includes(term);
+			});
+		});
+	</script>
+</body>
+</html>
